@@ -1,0 +1,35 @@
+.movie-container {
+    /* //height: 300px; */
+    display: flex; 
+    padding: 30px;
+    width: 100%;
+}
+
+@media all and (min-width: 40em) {
+    .movie-container {
+        width: 50%;
+    }
+}
+
+@media all and (min-width: 60em) {
+    .movie-container {
+        width: 33.33%;
+    }
+}
+
+.movie-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.movie-poster {
+    vertical-align: middle;
+    border-style: none;
+    width: 185px;
+    height: 278px;
+    align-self: center;
+}
+  
