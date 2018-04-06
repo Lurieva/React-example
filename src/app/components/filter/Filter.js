@@ -1,37 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
-import Input from '../../shared/Input/Input';
-import Button from '../../shared/Button/Button';
+import { Input, Button } from '../../shared/';
 import SearchBy from './searchBy/SearchBy';
 
 import './filter.css';
 
-class Filter extends Component {
-    constructor(props) {
-        super(props);
+const Filter = ({ searchBy, onClick, onChangeSearchBy, onFilterChange }) => (
+    <div className="filter">
+        <div className="filter-title">Find your movie</div>
+        <Input className="filter-input" onChange={onFilterChange}/>
+        <SearchBy searchBy={searchBy} onChange={onChangeSearchBy}/>
+        <Button name="Search" className="filter-apply-btn" onClick={onClick}/>
+    </div> 
+)
 
-        this.setSearchBy = this.setSearchBy.bind(this);
-        this.filterChange = this.filterChange.bind(this);
-    }
-
-    setSearchBy(event) {
-        this.props.onChangSearchBy(event);
-    }
-
-    filterChange(event) {
-        this.props.onFilterChange(event.target.value);
-    }
-    
-    render() {
-        return (
-            <div className="filter">
-                <div className="filter-title">Find your movie</div>
-                <Input class="filter-input" onChange={this.filterChange}/>
-                <SearchBy searchBy={this.props.searchBy} onChange={this.setSearchBy}/>
-                <Button name="Search" class="filter-apply-btn" onClick={this.props.onClick}/>
-            </div> 
-        )
-    }
+Filter.propTypes = {
+    searchBy: PropTypes.string.isRequired,
+    onFilterChange: PropTypes.func.isRequired,
+    onChangeSearchBy: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired
 }
 
 export default Filter;

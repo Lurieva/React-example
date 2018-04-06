@@ -2,14 +2,12 @@ import React from 'react';
 
 import './button.css';
 
-const Button = (props) => {
-    return (
-        <button className={`btn button--default ${props.class}`}
-                disabled={props.disabled}
-                onClick={props.onClick}>
-            {props.name}
-        </button>
-    )
-};
+const Button = ({ className, disabled, onClick, name }) => (
+    <button className={`btn button--default ${className}`}
+            disabled={disabled}
+            onClick={onClick}>
+        {name}
+    </button>
+)
 
 export default Button;

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { AppContainer } from 'react-hot-loader';
 
-import { Router, Route, Redirect } from 'react-router';
+import { Router, Route, Switch, Redirect } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 const history = createBrowserHistory();
@@ -10,26 +10,30 @@ import '../styles/normalize.css';
 
 import './app.css';
 
-import { MainPage, MovieDetailsPage } from './features';
-import MainLayout from './components/mainLayout/MainLayout';
-import NotFound from './components/notFound/NotFound';
+import { MoviesPage, MovieDetailsPage } from './features';
+import { MainLayout, NotFound } from './components';
 
 const App = () => {
     return (      
         <MainLayout>
             <Router history={history}>
-                <div style={{width: '100%'}}>
+                <Switch>
+                    <Route path='/'
+                           exact={true}
+                           render={() => <Redirect to='/movies'/>} 
+                    />
                     <Route
-                        exact
-                        component={MainPage}
+                        exact={true}
+                        component={MoviesPage}
                         path='/movies'
                     />
                     <Route
+                        exact={true}
                         component={MovieDetailsPage}
                         path='/movies/:movieId'
                     />
-                    {/* <Route path='*' component={NotFound}/> */}
-                </div>
+                    <Route component={NotFound}/>
+                </Switch>
             </Router>
         </MainLayout>
     )

@@ -4,10 +4,10 @@ import Footer from '../footer/Footer';
 
 import './mainLayout.css';
 
-const MainLayout = (props) => (
+const MainLayout = ({ children }) => (
     <div className="main-layout-container">
         <div className="main-layout-content">
-            {props.children}
+            {children}
         </div>
         <Footer />
     </div>

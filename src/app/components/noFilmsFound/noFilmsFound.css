@@ -4,5 +4,8 @@
     height: 300px;
     font-size: 30px;
     color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
 }

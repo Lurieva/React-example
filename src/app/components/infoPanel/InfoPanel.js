@@ -2,10 +2,10 @@ import React from 'react';
 
 import './infoPanel.css';
 
-const InfoPanel = () => {
-    return (
-        <div className="infoPanel"></div> 
-    )
-}
+const InfoPanel = ({ children }) => (
+    <div className="infoPanel">
+        {children}
+    </div> 
+)
 
 export default InfoPanel;

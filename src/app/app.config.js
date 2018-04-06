@@ -3,6 +3,11 @@ export const SEARCH_BY = {
     DIRECTOR: 'Director'
 }
 
+export const SORT_BY = {
+    RELEASE_DATE: 'release date',
+    RATING: 'rating'
+}
+
 export const API_KEY = 'api_key=86ec1123e778eaa75fc49be69e72ea6c';
 
 export const BASE_URL = 'https://api.themoviedb.org/3/';
